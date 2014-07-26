@@ -1,0 +1,344 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="IShopServerWSService" targetNamespace="http://server.ishop.mw.ru/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://server.ishop.mw.ru/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema elementFormDefault="unqualified" targetNamespace="http://server.ishop.mw.ru/" version="1.0" xmlns:tns="http://server.ishop.mw.ru/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="cancelBill" type="tns:cancelBill"/>
+<xs:element name="cancelBillPayedAmount" type="tns:cancelBillPayedAmount"/>
+<xs:element name="cancelBillPayedAmountResponse" type="tns:cancelBillPayedAmountResponse"/>
+<xs:element name="cancelBillResponse" type="tns:cancelBillResponse"/>
+<xs:element name="checkBill" type="tns:checkBill"/>
+<xs:element name="checkBillResponse" type="tns:checkBillResponse"/>
+<xs:element name="checkRefund" type="tns:checkRefund"/>
+<xs:element name="checkRefundResponse" type="tns:checkRefundResponse"/>
+<xs:element name="createBill" type="tns:createBill"/>
+<xs:element name="createBillCcy" type="tns:createBillCcy"/>
+<xs:element name="createBillCcyResponse" type="tns:createBillCcyResponse"/>
+<xs:element name="createBillExt" type="tns:createBillExt"/>
+<xs:element name="createBillExtResponse" type="tns:createBillExtResponse"/>
+<xs:element name="createBillResponse" type="tns:createBillResponse"/>
+<xs:element name="getBillList" type="tns:getBillList"/>
+<xs:element name="getBillListResponse" type="tns:getBillListResponse"/>
+<xs:complexType name="createBillCcy">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="login" type="xs:string"/>
+      <xs:element minOccurs="0" name="password" type="xs:string"/>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="amount" type="xs:string"/>
+      <xs:element minOccurs="0" name="comment" type="xs:string"/>
+      <xs:element minOccurs="0" name="txn" type="xs:string"/>
+      <xs:element minOccurs="0" name="lifetime" type="xs:string"/>
+      <xs:element name="currency" type="xs:int"/>
+      <xs:element name="alarm" type="xs:int"/>
+      <xs:element name="create" type="xs:boolean"/>
+      <xs:element name="from" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="createBillCcyResponse">
+    <xs:sequence>
+      <xs:element name="createBillCcyResult" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="cancelBill">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="login" type="xs:string"/>
+      <xs:element minOccurs="0" name="password" type="xs:string"/>
+      <xs:element minOccurs="0" name="txn" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="cancelBillResponse">
+    <xs:sequence>
+      <xs:element name="cancelBillResult" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="createBill">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="login" type="xs:string"/>
+      <xs:element minOccurs="0" name="password" type="xs:string"/>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="amount" type="xs:string"/>
+      <xs:element minOccurs="0" name="comment" type="xs:string"/>
+      <xs:element minOccurs="0" name="txn" type="xs:string"/>
+      <xs:element minOccurs="0" name="lifetime" type="xs:string"/>
+      <xs:element name="alarm" type="xs:int"/>
+      <xs:element name="create" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="createBillResponse">
+    <xs:sequence>
+      <xs:element name="createBillResult" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="checkRefund">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="login" type="xs:string"/>
+      <xs:element minOccurs="0" name="password" type="xs:string"/>
+      <xs:element minOccurs="0" name="txn" type="xs:string"/>
+      <xs:element name="cancelIdx" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="checkRefundResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="amount" type="xs:string"/>
+      <xs:element minOccurs="0" name="status" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="checkBill">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="login" type="xs:string"/>
+      <xs:element minOccurs="0" name="password" type="xs:string"/>
+      <xs:element minOccurs="0" name="txn" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="checkBillResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="amount" type="xs:string"/>
+      <xs:element minOccurs="0" name="date" type="xs:string"/>
+      <xs:element minOccurs="0" name="lifetime" type="xs:string"/>
+      <xs:element minOccurs="0" name="status" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getBillList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="login" type="xs:string"/>
+      <xs:element minOccurs="0" name="password" type="xs:string"/>
+      <xs:element minOccurs="0" name="dateFrom" type="xs:string"/>
+      <xs:element minOccurs="0" name="dateTo" type="xs:string"/>
+      <xs:element name="status" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getBillListResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="txns" type="xs:string"/>
+      <xs:element minOccurs="0" name="count" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="createBillExt">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="login" type="xs:string"/>
+      <xs:element minOccurs="0" name="password" type="xs:string"/>
+      <xs:element minOccurs="0" name="user" type="xs:string"/>
+      <xs:element minOccurs="0" name="amount" type="xs:string"/>
+      <xs:element minOccurs="0" name="comment" type="xs:string"/>
+      <xs:element minOccurs="0" name="txn" type="xs:string"/>
+      <xs:element minOccurs="0" name="lifetime" type="xs:string"/>
+      <xs:element name="alarm" type="xs:int"/>
+      <xs:element name="create" type="xs:boolean"/>
+      <xs:element name="from" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="createBillExtResponse">
+    <xs:sequence>
+      <xs:element name="createBillExtResult" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="cancelBillPayedAmount">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="login" type="xs:string"/>
+      <xs:element minOccurs="0" name="password" type="xs:string"/>
+      <xs:element minOccurs="0" name="txn" type="xs:string"/>
+      <xs:element minOccurs="0" name="amount" type="xs:string"/>
+      <xs:element name="cancelIdx" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="cancelBillPayedAmountResponse">
+    <xs:sequence>
+      <xs:element name="cancelBillPayedAmountResult" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="createBill">
+    <wsdl:part element="tns:createBill" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createBillExt">
+    <wsdl:part element="tns:createBillExt" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cancelBillPayedAmountResponse">
+    <wsdl:part element="tns:cancelBillPayedAmountResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkRefund">
+    <wsdl:part element="tns:checkRefund" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cancelBillPayedAmount">
+    <wsdl:part element="tns:cancelBillPayedAmount" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkBillResponse">
+    <wsdl:part element="tns:checkBillResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cancelBillResponse">
+    <wsdl:part element="tns:cancelBillResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkBill">
+    <wsdl:part element="tns:checkBill" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createBillCcy">
+    <wsdl:part element="tns:createBillCcy" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBillListResponse">
+    <wsdl:part element="tns:getBillListResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createBillResponse">
+    <wsdl:part element="tns:createBillResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cancelBill">
+    <wsdl:part element="tns:cancelBill" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createBillExtResponse">
+    <wsdl:part element="tns:createBillExtResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createBillCcyResponse">
+    <wsdl:part element="tns:createBillCcyResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkRefundResponse">
+    <wsdl:part element="tns:checkRefundResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBillList">
+    <wsdl:part element="tns:getBillList" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="IShopServerWS">
+    <wsdl:operation name="createBillCcy">
+      <wsdl:input message="tns:createBillCcy" name="createBillCcy">
+    </wsdl:input>
+      <wsdl:output message="tns:createBillCcyResponse" name="createBillCcyResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelBill">
+      <wsdl:input message="tns:cancelBill" name="cancelBill">
+    </wsdl:input>
+      <wsdl:output message="tns:cancelBillResponse" name="cancelBillResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createBill">
+      <wsdl:input message="tns:createBill" name="createBill">
+    </wsdl:input>
+      <wsdl:output message="tns:createBillResponse" name="createBillResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkRefund">
+      <wsdl:input message="tns:checkRefund" name="checkRefund">
+    </wsdl:input>
+      <wsdl:output message="tns:checkRefundResponse" name="checkRefundResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkBill">
+      <wsdl:input message="tns:checkBill" name="checkBill">
+    </wsdl:input>
+      <wsdl:output message="tns:checkBillResponse" name="checkBillResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBillList">
+      <wsdl:input message="tns:getBillList" name="getBillList">
+    </wsdl:input>
+      <wsdl:output message="tns:getBillListResponse" name="getBillListResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createBillExt">
+      <wsdl:input message="tns:createBillExt" name="createBillExt">
+    </wsdl:input>
+      <wsdl:output message="tns:createBillExtResponse" name="createBillExtResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelBillPayedAmount">
+      <wsdl:input message="tns:cancelBillPayedAmount" name="cancelBillPayedAmount">
+    </wsdl:input>
+      <wsdl:output message="tns:cancelBillPayedAmountResponse" name="cancelBillPayedAmountResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="IShopServerWSServiceSoapBinding" type="tns:IShopServerWS">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="createBillCcy">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="createBillCcy">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createBillCcyResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelBill">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="cancelBill">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="cancelBillResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createBill">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="createBill">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createBillResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkRefund">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="checkRefund">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="checkRefundResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkBill">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="checkBill">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="checkBillResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBillList">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="getBillList">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getBillListResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelBillPayedAmount">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="cancelBillPayedAmount">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="cancelBillPayedAmountResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createBillExt">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="createBillExt">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createBillExtResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IShopServerWSService">
+    <wsdl:port binding="tns:IShopServerWSServiceSoapBinding" name="IShopServerWSPort">
+      <soap12:address location="https://w.qiwi.com/services/ishopRus"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
